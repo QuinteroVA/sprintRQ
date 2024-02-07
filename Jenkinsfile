@@ -10,9 +10,9 @@ pipeline {
         steps {
           script {
             env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-            sh './mvnw.cmd clean package'
+            sh 'mvnw clean package'
           }
         }
-     }
+    }
   }
 }
