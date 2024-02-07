@@ -1,8 +1,15 @@
 pipeline {
 	agent any
   stages {
-      stage('Build Spring Boot') {
-              'clean package'
-        }
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
     }
+    stage('Build Spring Boot') {
+      steps {
+        'mvnw.cmd clean package'
+      }
+    }
+  }
 }
