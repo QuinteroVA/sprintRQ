@@ -1,15 +1,18 @@
 pipeline {
-	agent any
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
+  agent any
+    stages {
+      stage('Checkout') {
+        steps {
+          sh 'checkout scm'
+        }
       }
-    }
-    stage('Build Spring Boot') {
-      steps {
-        'mvnw.cmd clean package'
-      }
+      stage('Build Spring Boot') {
+        steps {
+          script {
+            env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+            sh 'mvnw clean package'
+          }
+        }
     }
   }
 }
