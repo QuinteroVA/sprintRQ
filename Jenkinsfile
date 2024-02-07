@@ -8,7 +8,7 @@ pipeline {
       }
       stage('Build Spring Boot') {
           steps {
-              'mvn clean package'
+              'clean package'
             }
         }
     }
