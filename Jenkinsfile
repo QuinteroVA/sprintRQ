@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Spring Boot') {
       steps {
-        sh 'mvn clean package'
+        bat 'mvnw clean package'
       }
     }
   }
