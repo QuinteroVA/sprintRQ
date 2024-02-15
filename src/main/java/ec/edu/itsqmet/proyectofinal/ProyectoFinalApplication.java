@@ -2,6 +2,11 @@ package ec.edu.itsqmet.proyectofinal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+@EntityScan(basePackages = "ec.edu.itsqmet.proyectofinal.Entity")
 
 @SpringBootApplication
 public class ProyectoFinalApplication {
@@ -10,4 +15,14 @@ public class ProyectoFinalApplication {
 		SpringApplication.run(ProyectoFinalApplication.class, args);
 	}
 
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("*").allowedHeaders("*");
+			}
+		};
+	}
 }
