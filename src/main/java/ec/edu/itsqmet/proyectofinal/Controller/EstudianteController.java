@@ -34,7 +34,7 @@ public class EstudianteController {
     //////////////////////////////////////////
     // CREAR - Crear un nuevo autor
     /////////////////////////////////////////
-    @PostMapping("/estudiante")
+    @PostMapping("/estudiantes")
     public Estudiante  crear(@RequestBody Estudiante estudiante) {
         return estudianteRepository.save(estudiante); // Guardar el nuevo curos en la base de datos
     }
